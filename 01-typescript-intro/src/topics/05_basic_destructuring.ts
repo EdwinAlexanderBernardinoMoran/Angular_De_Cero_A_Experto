@@ -36,9 +36,21 @@ const {author} = details
 // DESESTRUCTURACION: Se puede palicar a objetos, a la hora de hacer importaciones e exportaciones en los modulos, en los argumentos de las funciones, en cualquier archivo, arreglos. En general consiste en que podamos tomar, en este caso de un objeto ciertas piezas, ejemplo. los atributos.
 
 
-console.log('Song: ', anotherSong)
-console.log('Song: ', duration);
-console.log('Author: ', author);
+// console.log('Song: ', anotherSong)
+// console.log('Song: ', duration);
+// console.log('Author: ', author);
+
+
+
+
+// --------------------------------------------------------------------------------------------
+// DESESTRUCTURACION DE ARREGLOS.
+
+const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
+const [goku, vegeta, trunks = 'Not Fund']: string[] = ['Goku', 'Vegeta'];
+
+console.log('Personaje 3: ', trunks);
+
 
 
 

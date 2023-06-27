@@ -7,7 +7,8 @@ import { setupCounter } from './counter.ts'
 // import './topics/03_function_basic.ts';
 // import './topics/04_homekork_types.ts';
 // import './topics/05_basic_destructuring.ts';
-import './topics/06_function_destructuring.ts';
+// import './topics/06_function_destructuring.ts';
+import './topics/07_import_export.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>

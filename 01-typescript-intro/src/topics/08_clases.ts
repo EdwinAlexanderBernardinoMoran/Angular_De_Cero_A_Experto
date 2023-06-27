@@ -1,4 +1,4 @@
-class Person {
+export class Person {
 
     // Propiedades
     // public name: string;
@@ -9,11 +9,23 @@ class Person {
     //     this.addres = addres;
     // }
 
+    // CONSTRUCTOR DE UNA CLASE.
     constructor(
         public name: string,
         public addres: string = 'No addres'
     ){}
 }
 
-const Iroman = new Person("Edwin", "El Salvador");
+    // EXTENDER UNA CLASE
+export class Hero extends Person{
+    constructor(
+        public alterEgo: string,
+        public age: number,
+        public realName: string,
+    ){
+        super(realName, 'New York');
+    }
+}
+
+const Iroman = new Hero("Iroman", 45, "Tony");
 console.log(Iroman);

@@ -10,7 +10,8 @@ import { setupCounter } from './counter.ts'
 // import './topics/06_function_destructuring.ts';
 // import './topics/07_import_export.ts';
 // import './topics/08_clases.ts';
-import './topics/09_priorizar_composicion_sobre_herencia.ts';
+// import './topics/09_priorizar_composicion_sobre_herencia.ts';
+import './topics/10_generics.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>

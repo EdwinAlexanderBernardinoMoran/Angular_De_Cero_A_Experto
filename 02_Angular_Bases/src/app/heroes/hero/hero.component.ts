@@ -20,4 +20,14 @@ export class HeroComponent {
   getHeroDescription():string{
     return `${this.name} - ${this.age}`;
   }
+
+  // TAREA CAMBIAR NOMBRE - EDAD
+
+  changeHero():void{
+    this.name = 'BatMan';
+  }
+
+  changeAge():void{
+    this.age = 25;
+  }
 }

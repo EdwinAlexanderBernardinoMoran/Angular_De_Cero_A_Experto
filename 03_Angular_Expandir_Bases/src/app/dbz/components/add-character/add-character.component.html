@@ -1,7 +1,20 @@
 <h4>Agregar Personaje</h4>
   <form action="" class="row">
-    <input class="form-control mb-2" type="text" placeholder="Nombre">
-    <input class="form-control mb-2" type="number" placeholder="Poder">
+    <input class="form-control mb-2" type="text" [(ngModel)]="character.name" name="name" placeholder="Nombre">
+    <input class="form-control mb-2" type="number" [(ngModel)]="character.power" name="power" placeholder="Poder">
 
-    <button type="submit" class="btn btn-primary">Agregar</button>
+    <button type="submit" class="btn btn-primary" (click)="emitCharacter()">Agregar</button>
+
+    <!-- Construye el objeto como queremos desde el UI para el Componente -->
+    <pre>{{ character | json }}</pre>
 </form>
+
+<!--
+  Sintaxis conocida como caja de banas [()] = es To-Way-Data-Biding hacemos las dos cosas al mismo tiempo
+
+  () = significa que es un evento.
+  [] = Asociar un Atributo
+
+  Siempre que miremos la palabra Module debemos importarlos en los Inputs: Ejemplo (FormsModule)
+-->
+

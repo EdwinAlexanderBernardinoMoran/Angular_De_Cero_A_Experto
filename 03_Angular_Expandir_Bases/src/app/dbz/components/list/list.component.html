@@ -1,15 +1,20 @@
 <!-- El ngFor ya trae algunas variables pueden verlo en la documentacion Oficial -->
+<!-- Si queremos que Angular Tome el control de nuestras clases o cualquier cosa solo coloquenlo en llaves cuadradas. -->
 
 <h4>Listado de Personajes</h4>
 <ul *ngFor="let character of charactersList; let i = index; let isFirts = first; let isLast = last; let isEven = even; let isOdd = odd" class="list-group">
-  <li class="list-group-item">
+  <!-- <li class="list-group-item {{i === 0 ? 'list-group-item-success': ''}}"> -->
+  <li class="list-group-item" [ngClass]="{
+    'list-group-item-dark': isLast,
+    'list-group-item-primary': isEven,
+  }">
     <span class="text-primary">{{ i}}. </span>
     <span>{{ character.name }} - </span>
     <strong>Power: </strong>
     <span>{{ character.power }}</span>
     <!-- <span>Es el primero {{isFirts}}</span>
     <span>Es el ultimo: {{isLast}}</span> -->
-    <span>Es par: {{ isEven }}</span>
-    <span>Es impar: {{ isOdd }}</span>
+    <!-- <span>Es par: {{ isEven }}</span>
+    <span>Es impar: {{ isOdd }}</span> -->
   </li>
 </ul>

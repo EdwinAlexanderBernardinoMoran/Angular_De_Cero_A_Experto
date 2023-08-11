@@ -23,7 +23,16 @@ export class MainPageComponent{
   ];
 
   onNewCharacter(character: Character):void {
-    console.log('MainPage');
-    console.log(character);
+    // console.log('MainPage');
+    // console.log(character);
+
+    this.characters.push(character);
+  }
+
+  // Paso numero 1 video 67: Aca se pasa desde el component hijo, de listados por el emit()
+  onDeleteCharacter(index: number):void {
+    console.log('najsndfj');
+    console.log(index);
+    this.characters.splice(index,1);
   }
 }

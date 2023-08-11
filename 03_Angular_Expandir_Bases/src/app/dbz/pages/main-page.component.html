@@ -3,7 +3,9 @@
 
 <div class="row">
   <div class="col">
-    <dbz-list [charactersList]="characters"></dbz-list>
+
+    <!-- onDeleteCharacter(): Lo llamo de main-page-component -->
+    <dbz-list (onDelete)="onDeleteCharacter($event)" [charactersList]="characters"></dbz-list>
 
   </div>
   <div class="col">

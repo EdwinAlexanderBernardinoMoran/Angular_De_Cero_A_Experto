@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { Character } from '../interfaces/character.interface';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-dbz-main-page',
@@ -7,32 +8,8 @@ import { Character } from '../interfaces/character.interface';
 })
 
 export class MainPageComponent{
-  public characters: Character[] = [
-    {
-      name: 'Krillin',
-      power: 100
-    },
-    {
-      name: 'Goku',
-      power: 9500
-    },
-    {
-      name: 'Vegeta',
-      power: 7500
-    }
-  ];
 
-  onNewCharacter(character: Character):void {
-    // console.log('MainPage');
-    // console.log(character);
-
-    this.characters.push(character);
-  }
-
-  // Paso numero 1 video 67: Aca se pasa desde el component hijo, de listados por el emit()
-  onDeleteCharacter(index: number):void {
-    console.log('najsndfj');
-    console.log(index);
-    this.characters.splice(index,1);
-  }
+  // Concept super fundamental en Angular (Inyeccio de Dependencias).
+  // Esto habilita toda la informacion que esta siendo utilizada en este servicio.
+  constructor(public dbzService: DbzService){};
 }

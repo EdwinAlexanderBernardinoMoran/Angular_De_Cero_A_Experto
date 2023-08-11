@@ -5,14 +5,14 @@
   <div class="col">
 
     <!-- onDeleteCharacter(): Lo llamo de main-page-component -->
-    <dbz-list (onDelete)="dbzService.onDeleteCharacter" [charactersList]="dbzService.characters"></dbz-list>
+    <dbz-list (onDelete)="onDeleteCharacter($event)" [charactersList]="characters"></dbz-list>
 
   </div>
   <div class="col">
 
-    <!-- {{ characters }} -->
+    <!-- {{ dbzService.characters }} -->
 
     <!-- Este (onNewCharacter, viene de main-page.component) -->
-    <dbz-add-character (onNewCharacter)="dbzService.onNewCharacter"></dbz-add-character>
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
   </div>
 </div>

@@ -11,5 +11,17 @@ export class MainPageComponent{
 
   // Concept super fundamental en Angular (Inyeccio de Dependencias).
   // Esto habilita toda la informacion que esta siendo utilizada en este servicio.
-  constructor(public dbzService: DbzService){};
+  constructor(private dbzService: DbzService){};
+
+  get characters(): Character[]{
+    return [...this.dbzService.characters];
+  }
+
+  onDeleteCharacter(id: string):void{
+    this.dbzService.deleteCharaceterById(id);
+  }
+
+  onNewCharacter(character: Character):void{
+    this.dbzService.addCharacter(character);
+  }
 }

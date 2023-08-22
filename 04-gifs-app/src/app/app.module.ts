@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+
+    // Importando modulos del file (gifs, shared)
     GifsModule,
     SharedModule
   ],

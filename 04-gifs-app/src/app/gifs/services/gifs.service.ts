@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { SearchResponse, Gif } from '../interfaces/gifs.interfaces';
 
 @Injectable({providedIn: 'root'})
 export class GifsService {
 
+  public gifList: Gif[] = [];
   private _tagsHistory: string[] = [];
   private apiKey = 'y6lJHsvEGIkn7javATT8FqMNDdotCs94';
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
@@ -57,8 +59,11 @@ export class GifsService {
       .set('limit', '10')
       .set('q', tag)
 
-    this.htpp.get(`${this.serviceUrl}/search`,{params}).subscribe(res => {
-      console.log(res);
+    // Las interfaces de TypeScript no fuerzan un objeto a ser de una manera.
+    this.htpp.get<SearchResponse>(`${this.serviceUrl}/search`,{params}).subscribe(res => {
+      // console.log(res.data);
+      this.gifList = res.data;
+      console.log({gifs: this.gifList});
     })
     console.log(this.tagsHistory);
   }

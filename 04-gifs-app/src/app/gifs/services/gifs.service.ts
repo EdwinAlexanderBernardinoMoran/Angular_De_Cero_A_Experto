@@ -26,6 +26,7 @@ export class GifsService {
 
     this._tagsHistory.unshift(tag);
     this._tagsHistory = this.tagsHistory.splice(0,10);
+    this.saveLocalStore();
   }
 
   // async searchTag(tag: string):Promise<void>{
@@ -49,6 +50,10 @@ export class GifsService {
     // this.htpp.get('https://api.giphy.com/v1/gifs/search?api_key=y6lJHsvEGIkn7javATT8FqMNDdotCs94&q=valorant&limit=10')
     // console.log(this.tagsHistory);
   // }
+
+  private saveLocalStore():void{
+    localStorage.setItem('history', JSON.stringify(this._tagsHistory))
+  }
 
   searchTag(tag: string):void{
     if (tag.length === 0) return;

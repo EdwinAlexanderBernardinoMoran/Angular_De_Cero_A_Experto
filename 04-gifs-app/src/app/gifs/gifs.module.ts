@@ -18,6 +18,8 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
   ],
   imports: [
     CommonModule,
+
+    // Exportando modulo de share loazy image
     SharedModule
   ],
   exports:[

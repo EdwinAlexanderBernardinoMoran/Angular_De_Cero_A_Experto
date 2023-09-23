@@ -7,10 +7,15 @@ import { Observable, catchError, map, of, tap } from 'rxjs';
 export class CountriesService {
 
   private apiUrl:string = 'https://restcountries.com/v3.1';
-  private apiUrlCountry:string = 'https://restcountries.com/v3.1';
-  private apiUrlRigion:string = 'https://restcountries.com/v3.1';
 
   constructor(private http: HttpClient) { }
+
+  searchContryByAlphaCode(code: string): Observable<Country[]>{
+    const urlCountry = `${this.apiUrl}/alpha/${code}`;
+    return this.http.get<Country[]>(urlCountry).pipe(
+      catchError(() => of([]))
+    );
+  }
 
   searchCapital(term: string): Observable<Country[]>{
 
@@ -27,14 +32,14 @@ export class CountriesService {
   }
 
   searchCountry(term: string): Observable<Country[]>{
-    const urlCountry = `${this.apiUrlCountry}/name/${term}`;
+    const urlCountry = `${this.apiUrl}/name/${term}`;
     return this.http.get<Country[]>(urlCountry).pipe(
       catchError(() => of([]))
     );
   }
 
   searchRigion(term: string): Observable<Country[]>{
-    const urlRegion = `${this.apiUrlRigion}/region/${term}`;
+    const urlRegion = `${this.apiUrl}/region/${term}`;
     return this.http.get<Country[]>(urlRegion).pipe(
       catchError(() => of([]))
     );

@@ -10,10 +10,14 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
-  searchContryByAlphaCode(code: string): Observable<Country[]>{
+  // Este metodo ya que devuelve  un [] con many elements, entonces le decimos que lo recorra y que siempre muestre el primer elemento del arreglo
+  searchContryByAlphaCode(code: string): Observable<Country | null>{
     const urlCountry = `${this.apiUrl}/alpha/${code}`;
     return this.http.get<Country[]>(urlCountry).pipe(
-      catchError(() => of([]))
+
+      // De mis paises quiero que me retornes el de la posicion 0, si no retorna un Null
+      map(countries => countries.length > 0 ? countries[0] : null),
+      catchError(() => of(null))
     );
   }
 
